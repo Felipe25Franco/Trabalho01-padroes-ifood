@@ -6,7 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Trabalho01-padroes-ifood" />
+        <module name="trabalho01-padroes-ifood" />
       </profile>
     </annotationProcessing>
   </component>
