@@ -14,7 +14,7 @@ public class PedidoEstadoEmPreparo extends PedidoEstado {
     }
 
     public boolean pronto(Pedido pedido) {
-        pedido.setEstado(PedidoEstadoEmPreparo.getInstance());
+        pedido.setEstado(PedidoEstadoPronto.getInstance());
         return true;
     }
 }

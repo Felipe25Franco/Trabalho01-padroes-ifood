@@ -23,7 +23,7 @@ public abstract class Funcionario {
                 return funcionarioSuperior.validarEtapaPedido(pedido);
             }
             else {
-                return "sem proxima etapa";
+                return "Sem proxima etapa";
             }
         }
     }
