@@ -2,18 +2,24 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class Cliente implements Observer {
+
     private String nome;
-    private String notificacao;
+    private String ultimaNotificacao;
 
     public Cliente(String nome) {
         this.nome = nome;
     }
 
-    public String getNotificacao() {
-        return notificacao;
+    public String getUltimaNotificacao() {
+        return ultimaNotificacao;
     }
 
-    public void update(Observable pedido, Object arg) {
-        this.notificacao = this.nome + " foi notificado: Pedido agora está em estado " + pedido.toString();
+    public void acompanhar(Pedido pedido) {
+        pedido.addObserver(this);
+    }
+
+    public void update(Observable o, Object arg) {
+        this.ultimaNotificacao = nome + ": status do pedido atualizado para " + arg;
+        System.out.println(ultimaNotificacao);
     }
 }

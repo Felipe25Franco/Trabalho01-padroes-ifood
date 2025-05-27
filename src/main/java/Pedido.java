@@ -1,29 +1,24 @@
 import java.util.Observable;
 
 public class Pedido extends Observable {
-    private EstadoPedido estado;
+
+    private PedidoEstado estado;
 
     public Pedido() {
-        this.estado = new PedidoCriado();
+        this.estado = PedidoSolicitado.getInstance();
     }
 
-    public void setEstado(EstadoPedido estado) {
-        this.estado = estado;
-        setChanged();
-        notifyObservers();
-    }
-
-    public String processar() {
-        String resultado = estado.processar(this);
-        return resultado;
-    }
-
-    public EstadoPedido getEstado() {
+    public PedidoEstado getEstado() {
         return estado;
     }
 
-    @Override
-    public String toString() {
-        return estado.getNomeEstado();
+    public void setEstado(PedidoEstado estado) {
+        this.estado = estado;
+        setChanged();
+        notifyObservers(estado.getNomeEstado());
+    }
+
+    public void proximoEstado() {
+        this.estado.proximoEstado(this);
     }
 }
