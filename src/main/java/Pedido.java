@@ -10,14 +10,13 @@ public class Pedido extends Observable {
         this.tipoPedido = tipoPedido;
     }
 
-    // Método modificado para permitir que um cliente se inscreva como observador
     public void acompanharPedido(Cliente cliente) {
-        addObserver(cliente);  // Adiciona o cliente como observador
+        addObserver(cliente);
     }
 
     public void acompanharPedido() {
         setChanged();
-        notifyObservers(estado.getEstado()); // Atualiza os observadores com o novo estado
+        notifyObservers(estado.getEstado());
     }
 
     // Métodos de transição de estado
@@ -29,7 +28,7 @@ public class Pedido extends Observable {
         boolean result = estado.preparar(this);
         if (result) {
             setChanged();
-            notifyObservers(estado.getEstado());  // Notificar observadores após mudança
+            notifyObservers(estado.getEstado());
         }
         return result;
     }
@@ -38,7 +37,7 @@ public class Pedido extends Observable {
         boolean result = estado.pronto(this);
         if (result) {
             setChanged();
-            notifyObservers(estado.getEstado());  // Notificar observadores após mudança
+            notifyObservers(estado.getEstado());
         }
         return result;
     }
@@ -47,7 +46,7 @@ public class Pedido extends Observable {
         boolean result = estado.entregando(this);
         if (result) {
             setChanged();
-            notifyObservers(estado.getEstado());  // Notificar observadores após mudança
+            notifyObservers(estado.getEstado());
         }
         return result;
     }
@@ -56,12 +55,12 @@ public class Pedido extends Observable {
         boolean result = estado.entregue(this);
         if (result) {
             setChanged();
-            notifyObservers(estado.getEstado());  // Notificar observadores após mudança
+            notifyObservers(estado.getEstado());
         }
         return result;
     }
 
-    // Configuração e obtenção do estado do pedido
+
     public void setEstado(PedidoEstado estado) {
         this.estado = estado;
     }
