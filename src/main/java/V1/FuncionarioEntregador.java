@@ -1,3 +1,5 @@
+package V1;
+
 public class FuncionarioEntregador extends Funcionario {
     public FuncionarioEntregador(Funcionario superior) {
         listaPedidos.add(TipoPedidoEmEntrega.getTipoPedidoEmEntrega());

@@ -1,3 +1,5 @@
+package V1;
+
 public class PedidoEstadoSolicitado extends PedidoEstado {
   private PedidoEstadoSolicitado() {};
   private static PedidoEstadoSolicitado instance = new PedidoEstadoSolicitado();

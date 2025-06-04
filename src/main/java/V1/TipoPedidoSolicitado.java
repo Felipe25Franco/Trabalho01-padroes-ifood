@@ -1,3 +1,5 @@
+package V1;
+
 public class TipoPedidoSolicitado implements TipoPedido{
     private static TipoPedidoSolicitado tipoPedidoSolicitado = new TipoPedidoSolicitado();
     private TipoPedidoSolicitado() {};

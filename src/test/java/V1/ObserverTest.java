@@ -1,3 +1,8 @@
+package V1;
+
+import V1.Cliente;
+import V1.Pedido;
+import V1.TipoPedidoSolicitado;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

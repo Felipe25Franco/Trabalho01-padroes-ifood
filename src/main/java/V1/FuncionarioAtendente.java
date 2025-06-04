@@ -1,3 +1,5 @@
+package V1;
+
 public class FuncionarioAtendente extends Funcionario{
 
     public FuncionarioAtendente(Funcionario superior) {

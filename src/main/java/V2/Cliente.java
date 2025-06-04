@@ -1,5 +1,7 @@
 package V2;
 
+import V1.Pedido;
+
 import java.util.Observable;
 import java.util.Observer;
 
@@ -42,7 +44,11 @@ public class Cliente implements Observer {
         this.valorPago = opcao.executarPagamento(new OpcaoSaldoApp());
     }
 
-    public void updade(Observable o, Object arg) {
+    public void acompanhar(Pedido pedido) {
+        pedido.addObserver(this);
+    }
+
+    public void update(Observable o, Object arg) {
         this.ultimaNotificacao = nome + ": status do pedido atualizado para " + arg;
         System.out.println(ultimaNotificacao);
     }
