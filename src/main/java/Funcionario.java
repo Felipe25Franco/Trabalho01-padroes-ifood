@@ -11,13 +11,13 @@ public abstract class Funcionario {
 
     public abstract String getDescricaoCargo();
 
-    public String validarEtapasPedido(Pedido pedido) {
+    public String validarEtapaPedido(Pedido pedido) {
         if (listaPedidos.contains(pedido.getTipoPedido())){
             return getDescricaoCargo();
         }
         else {
             if (funcionarioSuperior != null) {
-                return getFuncionarioSuperior().validarEtapasPedido(pedido);
+                return getFuncionarioSuperior().validarEtapaPedido(pedido);
             }
             else {
                 return "Sem proxima etapa";

@@ -9,5 +9,8 @@
         <module name="trabalho01-padroes-ifood" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Trabalho01-padroes-ifood" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
