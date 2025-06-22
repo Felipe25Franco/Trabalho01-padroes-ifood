@@ -6,8 +6,17 @@ public class Cliente implements Observer {
     private String nome;
     private String ultimaNotificacao;
     private double valorPago;
+    private double saldoApp;
 
     public Cliente(String nome) {this.nome = nome;}
+
+    public double getSaldoApp() {
+        return saldoApp;
+    }
+
+    public void setSaldoApp(double saldoApp) {
+        this.saldoApp = saldoApp;
+    }
     public String getUltimaNotificacao() {
         return ultimaNotificacao;
     }
@@ -38,7 +47,7 @@ public class Cliente implements Observer {
 
     public void pagarComSaldoApp(double valor) {
         Opcao opcao = new Opcao(valor);
-        this.valorPago = opcao.executarPagamento(new OpcaoSaldoApp());
+        this.valorPago = opcao.executarPagamento(new OpcaoSaldoApp(this));
     }
 
     public void acompanhar(Pedido pedido) {

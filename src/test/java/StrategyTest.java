@@ -34,9 +34,19 @@ public class StrategyTest {
         assertEquals(80, cliente.getValorPago());
     }
     @Test
-    void devePagarComSaldoApp(){
+    void devePagarComSaldoAppSuficiente(){
         Cliente cliente = new Cliente("Maria");
+        cliente.setSaldoApp(100);
         cliente.pagarComSaldoApp(90);
         assertEquals(90, cliente.getValorPago());
+        assertEquals(10, cliente.getSaldoApp());
+    }
+    @Test
+    void naoDevePagarComSaldoAppInsuficiente(){
+        Cliente cliente = new Cliente("Maria");
+        cliente.setSaldoApp(30);
+        cliente.pagarComSaldoApp(50);
+        assertEquals(0, cliente.getValorPago());
+        assertEquals(30, cliente.getSaldoApp());
     }
 }
