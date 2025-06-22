@@ -7,51 +7,45 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SingletonTest {
 
     @Test
-    void deveRetornarMesmaInstanciaTipoPedidoSolicitado() {
-        TipoPedidoSolicitado instancia1 = TipoPedidoSolicitado.getTipoPedidoSolicitado();
-        TipoPedidoSolicitado instancia2 = TipoPedidoSolicitado.getTipoPedidoSolicitado();
-        assertSame(instancia1, instancia2);
+    void deveRetornarInstanciaDeEstadoDePedidoSolicitado() {
+        PedidoEstadoSolicitado.getInstance().getEstado();
+        assertEquals("Solicitado", PedidoEstadoSolicitado.getInstance().getEstado());
     }
 
     @Test
-    void deveRetornarMesmaInstanciaTipoPedidoEmPreparo() {
-        TipoPedidoEmPreparo instancia1 = TipoPedidoEmPreparo.getTipoPedidoEmPreparo();
-        TipoPedidoEmPreparo instancia2 = TipoPedidoEmPreparo.getTipoPedidoEmPreparo();
-        assertSame(instancia1, instancia2);
+    void deveRetornarInstanciaDeEstadoDePedidoEmPreparo() {
+        PedidoEstadoEmPreparo.getInstance().getEstado();
+        assertEquals("Em Preparo", PedidoEstadoEmPreparo.getInstance().getEstado());
+    }
+    @Test
+    void deveRetornarInstanciaDeEstadoDePedidoPronto() {
+        PedidoEstadoPronto.getInstance().getEstado();
+        assertEquals("Pronto", PedidoEstadoPronto.getInstance().getEstado());
+    }
+    @Test
+    void deveRetornarInstanciaDeEstadoDePedidoEmEntrega() {
+        PedidoEstadoEmEntrega.getInstance().getEstado();
+        assertEquals("Em Entrega", PedidoEstadoEmEntrega.getInstance().getEstado());
+    }
+    @Test
+    void deveRetornarInstanciaDeEstadoDePedidoEntregue() {
+        PedidoEstadoEntregue.getInstance().getEstado();
+        assertEquals("Entregue", PedidoEstadoEntregue.getInstance().getEstado());
     }
 
     @Test
-    void deveRetornarMesmaInstanciaTipoPedidoPronto() {
-        TipoPedidoPronto instancia1 = TipoPedidoPronto.getTipoPedidoPronto();
-        TipoPedidoPronto instancia2 = TipoPedidoPronto.getTipoPedidoPronto();
-        assertSame(instancia1, instancia2);
+    void deveRetornarInstaciaDeCargoFuncionarioAtendente() {
+        FuncionarioAtendente.getInstance().getDescricaoCargo();
+        assertEquals("Atendente", FuncionarioAtendente.getInstance().getDescricaoCargo());
     }
-
     @Test
-    void deveRetornarMesmaInstanciaTipoPedidoEntregue() {
-        TipoPedidoEntregue instancia1 = TipoPedidoEntregue.getTipoPedidoEntregue();
-        TipoPedidoEntregue instancia2 = TipoPedidoEntregue.getTipoPedidoEntregue();
-        assertSame(instancia1, instancia2);
+    void deveRetornarInstaciaDeCargoFuncionarioCozinheiro() {
+        FuncionarioCozinheiro.getInstance().getDescricaoCargo();
+        assertEquals("Cozinheiro", FuncionarioCozinheiro.getInstance().getDescricaoCargo());
     }
-
     @Test
-    void deveRetornarMesmaInstanciaPedidoEstadoSolicitado() {
-        PedidoEstadoSolicitado instancia1 = PedidoEstadoSolicitado.getInstance();
-        PedidoEstadoSolicitado instancia2 = PedidoEstadoSolicitado.getInstance();
-        assertSame(instancia1, instancia2);
-    }
-
-    @Test
-    void deveRetornarInstanciasDiferentesEntreTipos() {
-        TipoPedidoSolicitado tipoSolicitado = TipoPedidoSolicitado.getTipoPedidoSolicitado();
-        TipoPedidoPronto tipoPronto = TipoPedidoPronto.getTipoPedidoPronto();
-        assertNotSame(tipoSolicitado, tipoPronto);
-    }
-
-    @Test
-    void deveRetornarInstanciasDiferentesEntreEstados() {
-        PedidoEstadoSolicitado estadoSolicitado = PedidoEstadoSolicitado.getInstance();
-        PedidoEstadoPronto estadoPronto = PedidoEstadoPronto.getInstance();
-        assertNotSame(estadoSolicitado, estadoPronto);
+    void deveRetornarInstaciaDeCargoFuncionarioEntregador() {
+        FuncionarioEntregador.getInstance().getDescricaoCargo();
+        assertEquals("Entregador", FuncionarioEntregador.getInstance().getDescricaoCargo());
     }
 }

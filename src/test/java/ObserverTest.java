@@ -68,7 +68,6 @@ public class ObserverTest {
         pedido1.preparar();
         pedido1.pronto();
 
-
         Pedido pedido2 = new Pedido(TipoPedidoSolicitado.getTipoPedidoSolicitado());
         Cliente cliente2 = new Cliente("Maria");
         pedido2.acompanharPedido(cliente2);

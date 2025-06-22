@@ -29,7 +29,7 @@ public class ChainTest {
     }
 
     @Test
-    public void deveRetornarCozinheiroParaValidarEtapaDePedido3() {
+    public void deveRetornarCozinheiroParaValidarEtapaDePedido2() {
         assertEquals("Cozinheiro", cozinheiro.validarEtapaPedido(new Pedido(TipoPedidoPronto.getTipoPedidoPronto())));
     }
 
@@ -39,7 +39,7 @@ public class ChainTest {
     }
 
     @Test
-    public void deveRetornarEntregadorParaValidarEtapaDePedido5() {
+    public void deveRetornarEntregadorParaValidarEtapaDePedido2() {
         assertEquals("Entregador", entregador.validarEtapaPedido(new Pedido(TipoPedidoEntregue.getTipoPedidoEntregue())));
     }
     @Test
