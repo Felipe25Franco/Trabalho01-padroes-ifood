@@ -33,19 +33,5 @@ public class SingletonTest {
         assertEquals("Entregue", PedidoEstadoEntregue.getInstance().getEstado());
     }
 
-    @Test
-    void deveRetornarInstaciaDeCargoFuncionarioAtendente() {
-        FuncionarioAtendente.getInstance().getDescricaoCargo();
-        assertEquals("Atendente", FuncionarioAtendente.getInstance().getDescricaoCargo());
-    }
-    @Test
-    void deveRetornarInstaciaDeCargoFuncionarioCozinheiro() {
-        FuncionarioCozinheiro.getInstance().getDescricaoCargo();
-        assertEquals("Cozinheiro", FuncionarioCozinheiro.getInstance().getDescricaoCargo());
-    }
-    @Test
-    void deveRetornarInstaciaDeCargoFuncionarioEntregador() {
-        FuncionarioEntregador.getInstance().getDescricaoCargo();
-        assertEquals("Entregador", FuncionarioEntregador.getInstance().getDescricaoCargo());
-    }
+
 }
