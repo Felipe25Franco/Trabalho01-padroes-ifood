@@ -56,6 +56,5 @@ public class Cliente implements Observer {
 
     public void update(Observable o, Object arg) {
         this.ultimaNotificacao = nome + ": status do pedido atualizado para " + arg;
-        System.out.println(ultimaNotificacao);
     }
 }
