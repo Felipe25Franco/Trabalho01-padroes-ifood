@@ -1,8 +1,8 @@
-public class OpcaoSaldoApp implements OpcaoPagamento{
+public class OpcaoPagamentoSaldoApp implements OpcaoPagamento{
 
     private Cliente cliente;
 
-    public OpcaoSaldoApp(Cliente cliente) {
+    public OpcaoPagamentoSaldoApp(Cliente cliente) {
         this.cliente = cliente;
     }
 

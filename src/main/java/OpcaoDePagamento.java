@@ -1,10 +1,10 @@
 
 
-public class Opcao {
+public class OpcaoDePagamento {
 
     private double valor;
 
-    public Opcao(double valor) {
+    public OpcaoDePagamento(double valor) {
         this.valor = valor;
     }
     public double executarPagamento(OpcaoPagamento opcao) {

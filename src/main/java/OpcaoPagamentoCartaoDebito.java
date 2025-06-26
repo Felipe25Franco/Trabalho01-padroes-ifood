@@ -1,6 +1,6 @@
 
 
-public class OpcaoCartaoDebito implements OpcaoPagamento{
+public class OpcaoPagamentoCartaoDebito implements OpcaoPagamento{
 
 
     public double pagar(double valor) {

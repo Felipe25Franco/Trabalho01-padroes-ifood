@@ -10280,7 +10280,7 @@
 											"top": 15,
 											"width": 324.84765625,
 											"height": 13,
-											"text": "Opcao"
+											"text": "OpcaoDePagamento"
 										},
 										{
 											"_type": "LabelView",
@@ -10386,7 +10386,7 @@
 											"top": 61,
 											"width": 324.84765625,
 											"height": 13,
-											"text": "+executarPagamento(OpcaoPagamento opcao): Double",
+											"text": "+executarPagamento(OpcaoPagamento opcaoDePagamento): Double",
 											"horizontalAlignment": 0
 										}
 									],
@@ -10671,7 +10671,7 @@
 											"top": 135,
 											"width": 168.74609375,
 											"height": 13,
-											"text": "OpcaoCartaoCredito"
+											"text": "OpcaoPagamentoCartaoCredito"
 										},
 										{
 											"_type": "LabelView",
@@ -10866,7 +10866,7 @@
 											"top": 271,
 											"width": 168.74609375,
 											"height": 13,
-											"text": "OpcaoCartaoDebito"
+											"text": "OpcaoPagamentoCartaoDebito"
 										},
 										{
 											"_type": "LabelView",
@@ -11061,7 +11061,7 @@
 											"top": 431,
 											"width": 168.74609375,
 											"height": 13,
-											"text": "OpcaoDinheiro"
+											"text": "OpcaoPagamentoDinheiro"
 										},
 										{
 											"_type": "LabelView",
@@ -11256,7 +11256,7 @@
 											"top": 663,
 											"width": 168.74609375,
 											"height": 13,
-											"text": "OpcaoPix"
+											"text": "OpcaoPagamentoPix"
 										},
 										{
 											"_type": "LabelView",
@@ -11451,7 +11451,7 @@
 											"top": 615,
 											"width": 168.74609375,
 											"height": 13,
-											"text": "OpcaoSaldoApp"
+											"text": "OpcaoPagamentoSaldoApp"
 										},
 										{
 											"_type": "LabelView",
@@ -14140,7 +14140,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Opcao",
+					"name": "OpcaoDePagamento",
 					"ownedElements": [
 						{
 							"_type": "UMLDependency",
@@ -14183,7 +14183,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGXdfmWMQygf6U="
 									},
-									"name": "OpcaoPagamento opcao",
+									"name": "OpcaoPagamento opcaoDePagamento",
 									"type": ""
 								},
 								{
@@ -14215,7 +14215,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "OpcaoCartaoCredito",
+					"name": "OpcaoPagamentoCartaoCredito",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -14268,7 +14268,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "OpcaoCartaoDebito",
+					"name": "OpcaoPagamentoCartaoDebito",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -14321,7 +14321,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "OpcaoDinheiro",
+					"name": "OpcaoPagamentoDinheiro",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -14374,7 +14374,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "OpcaoPix",
+					"name": "OpcaoPagamentoPix",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -14427,7 +14427,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "OpcaoSaldoApp",
+					"name": "OpcaoPagamentoSaldoApp",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",

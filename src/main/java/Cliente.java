@@ -26,28 +26,28 @@ public class Cliente implements Observer {
     }
 
     public void pagarComCartaoDebito(double valor) {
-        Opcao opcao = new Opcao(valor);
-        this.valorPago = opcao.executarPagamento(new OpcaoCartaoDebito());
+        OpcaoDePagamento opcaoDePagamento = new OpcaoDePagamento(valor);
+        this.valorPago = opcaoDePagamento.executarPagamento(new OpcaoPagamentoCartaoDebito());
     }
 
     public void pagarComPix(double valor) {
-        Opcao opcao = new Opcao(valor);
-        this.valorPago = opcao.executarPagamento(new OpcaoPix());
+        OpcaoDePagamento opcaoDePagamento = new OpcaoDePagamento(valor);
+        this.valorPago = opcaoDePagamento.executarPagamento(new OpcaoPagamentoPix());
     }
 
     public void pagarComDinheiro(double valor) {
-        Opcao opcao = new Opcao(valor);
-        this.valorPago = opcao.executarPagamento(new OpcaoDinheiro());
+        OpcaoDePagamento opcaoDePagamento = new OpcaoDePagamento(valor);
+        this.valorPago = opcaoDePagamento.executarPagamento(new OpcaoPagamentoDinheiro());
     }
 
     public void pagarComCartaoCredito(double valor) {
-        Opcao opcao = new Opcao(valor);
-        this.valorPago = opcao.executarPagamento(new OpcaoCartaoCredito());
+        OpcaoDePagamento opcaoDePagamento = new OpcaoDePagamento(valor);
+        this.valorPago = opcaoDePagamento.executarPagamento(new OpcaoPagamentoCartaoCredito());
     }
 
     public void pagarComSaldoApp(double valor) {
-        Opcao opcao = new Opcao(valor);
-        this.valorPago = opcao.executarPagamento(new OpcaoSaldoApp(this));
+        OpcaoDePagamento opcaoDePagamento = new OpcaoDePagamento(valor);
+        this.valorPago = opcaoDePagamento.executarPagamento(new OpcaoPagamentoSaldoApp(this));
     }
 
     public void acompanhar(Pedido pedido) {
