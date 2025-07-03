@@ -1,6 +1,6 @@
 
 
-public abstract class PedidoEstado {
+public abstract class PedidoEstado implements Cloneable{
 
     public abstract String getEstado();
 
@@ -19,5 +19,10 @@ public abstract class PedidoEstado {
     }
     public boolean entregue(Pedido pedido) {
         return false;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }

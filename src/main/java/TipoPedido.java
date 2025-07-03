@@ -1,4 +1,8 @@
 
+public interface TipoPedido implements Cloneable{
 
-public interface TipoPedido {
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 }
