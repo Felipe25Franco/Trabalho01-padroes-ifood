@@ -10,6 +10,26 @@ public class Cliente implements Observer {
 
     public Cliente(String nome) {this.nome = nome;}
 
+    public Cliente() {
+        this.nome = "";
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setUltimaNotificacao(String ultimaNotificacao) {
+        this.ultimaNotificacao = ultimaNotificacao;
+    }
+
+    public void setValorPago(double valorPago) {
+        this.valorPago = valorPago;
+    }
+
     public double getSaldoApp() {
         return saldoApp;
     }

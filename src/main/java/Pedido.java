@@ -88,8 +88,7 @@ public class Pedido extends Observable implements Cloneable{
     public Pedido clone() throws CloneNotSupportedException {
         Pedido pedidoClone = (Pedido) super.clone();
 
-        pedidoClone.estado = (PedidoEstado) pedidoClone.estado.clone();
-        pedidoClone.tipoPedido = (TipoPedido) pedidoClone.tipoPedido.clone();
+
         return pedidoClone;
     }
 }

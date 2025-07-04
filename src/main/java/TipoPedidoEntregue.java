@@ -7,4 +7,6 @@ public class TipoPedidoEntregue implements TipoPedido{
     public static TipoPedidoEntregue getTipoPedidoEntregue() {
         return tipoPedidoEntregue;
     }
+
+
 }

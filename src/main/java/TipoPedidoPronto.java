@@ -6,4 +6,6 @@ public class TipoPedidoPronto implements TipoPedido{
     public static TipoPedidoPronto getTipoPedidoPronto() {
         return tipoPedidoPronto;
     }
+
+
 }

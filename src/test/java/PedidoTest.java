@@ -227,4 +227,18 @@ public class PedidoTest {
         PedidoEstadoEntregue.getInstance().getEstado();
         assertEquals("Entregue", PedidoEstadoEntregue.getInstance().getEstado());
     }
+
+
+    // PROTOTYPE
+
+    @Test
+    void testClone() throws CloneNotSupportedException {
+        pedido = new Pedido(TipoPedidoSolicitado.getTipoPedidoSolicitado());
+
+        Pedido pedidoClone = pedido.clone();
+        pedidoClone.setEstado(PedidoEstadoPronto.getInstance());
+
+        assertEquals("O pedido está Solicitado",pedido.toString());
+        assertEquals("O pedido está Pronto",pedidoClone.toString());
+    }
 }

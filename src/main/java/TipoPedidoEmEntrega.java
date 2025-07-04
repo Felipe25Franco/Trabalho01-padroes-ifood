@@ -7,5 +7,4 @@ public class TipoPedidoEmEntrega implements TipoPedido{
         return tipoPedidoEmEntrega;
     }
 
-
 }

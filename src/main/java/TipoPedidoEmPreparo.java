@@ -7,4 +7,6 @@ public class TipoPedidoEmPreparo implements TipoPedido{
     public static TipoPedidoEmPreparo getTipoPedidoEmPreparo() {
         return tipoPedidoEmPreparo;
     }
+
+
 }
