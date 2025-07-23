@@ -236,9 +236,13 @@ public class PedidoTest {
         pedido = new Pedido(TipoPedidoSolicitado.getTipoPedidoSolicitado());
 
         Pedido pedidoClone = pedido.clone();
+        Pedido pedidoClone2 = pedido.clone();
+
+
         pedidoClone.setEstado(PedidoEstadoPronto.getInstance());
 
         assertEquals("O pedido está Solicitado",pedido.toString());
         assertEquals("O pedido está Pronto",pedidoClone.toString());
+        assertEquals("O pedido está Solicitado",pedidoClone2.toString());
     }
 }
