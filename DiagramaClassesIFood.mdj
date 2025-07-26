@@ -12112,11 +12112,12 @@
 											"_parent": {
 												"$ref": "AAAAAAGYN7NwlsFdlGM="
 											},
-											"visible": false,
 											"font": "Arial;13;0",
-											"left": -16,
-											"top": -48,
-											"height": 13
+											"left": 733,
+											"top": 5,
+											"width": 64.32080078125,
+											"height": 13,
+											"text": "«interface»"
 										},
 										{
 											"_type": "LabelView",
@@ -12126,8 +12127,8 @@
 											},
 											"font": "Arial;13;1",
 											"left": 733,
-											"top": 7,
-											"width": 62.12451171875,
+											"top": 20,
+											"width": 64.32080078125,
 											"height": 13,
 											"text": "Cloneable"
 										},
@@ -12161,8 +12162,8 @@
 									],
 									"font": "Arial;13;0",
 									"left": 728,
-									"width": 72.12451171875,
-									"height": 25,
+									"width": 74.32080078125,
+									"height": 38,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGYN7NwlsFe9Sk="
 									},
@@ -12187,8 +12188,8 @@
 									},
 									"font": "Arial;13;0",
 									"left": 728,
-									"top": 25,
-									"width": 72.12451171875,
+									"top": 38,
+									"width": 74.32080078125,
 									"height": 10
 								},
 								{
@@ -12202,8 +12203,8 @@
 									},
 									"font": "Arial;13;0",
 									"left": 728,
-									"top": 35,
-									"width": 72.12451171875,
+									"top": 48,
+									"width": 74.32080078125,
 									"height": 10
 								},
 								{
@@ -12242,8 +12243,8 @@
 							"font": "Arial;13;0",
 							"containerChangeable": true,
 							"left": 728,
-							"width": 72.12451171875,
-							"height": 45,
+							"width": 74.32080078125,
+							"height": 58,
 							"nameCompartment": {
 								"$ref": "AAAAAAGYN7NwlsFdlGM="
 							},
@@ -12342,7 +12343,7 @@
 								"$ref": "AAAAAAGXFsxWpAaPsUE="
 							},
 							"lineStyle": 1,
-							"points": "727:103;753:45",
+							"points": "728:103;750:58",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGYN7O5OsUvwSc="
@@ -14433,7 +14434,8 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Cloneable"
+					"name": "Cloneable",
+					"stereotype": "interface"
 				}
 			]
 		}
