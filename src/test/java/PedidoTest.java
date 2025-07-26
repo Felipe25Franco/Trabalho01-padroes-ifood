@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class PedidoTest {
 
-    //STATE
+                                                            //STATE
 
     private Pedido pedido;
 
@@ -162,7 +162,7 @@ public class PedidoTest {
         assertFalse(pedido.entregue());
     }
 
-    // CHAIN
+                                                                // CHAIN
 
     FuncionarioAtendente atendente;
     FuncionarioCozinheiro cozinheiro;
@@ -199,7 +199,7 @@ public class PedidoTest {
         assertEquals("Sem proxima etapa", entregador.validarEtapaPedido(new Pedido(TipoPedidoSolicitado.getTipoPedidoSolicitado())));
     }
 
-    // SINGLETON
+                                                    // SINGLETON
 
     @Test
     void deveRetornarInstanciaDeEstadoDePedidoSolicitado() {
@@ -229,7 +229,7 @@ public class PedidoTest {
     }
 
 
-    // PROTOTYPE
+                                                        // PROTOTYPE
 
     @Test
     void testClone() throws CloneNotSupportedException {
