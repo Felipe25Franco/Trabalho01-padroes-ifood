@@ -6,6 +6,7 @@ public class Pedido extends Observable implements Cloneable{
 
     private PedidoEstado estado;
     private TipoPedido tipoPedido;
+    private Lanche lanche;
 
     public Pedido(TipoPedido tipoPedido) {
         this.estado = PedidoEstadoSolicitado.getInstance();
@@ -79,6 +80,14 @@ public class Pedido extends Observable implements Cloneable{
         this.tipoPedido = tipoPedido;
     }
 
+    public Lanche getLanche() {
+        return lanche;
+    }
+
+    public void setLanche(Lanche lanche) {
+        this.lanche = lanche;
+    }
+
     @Override
     public String toString() {
         return "O pedido está " + estado.getEstado();
@@ -89,6 +98,7 @@ public class Pedido extends Observable implements Cloneable{
         Pedido pedidoClone = (Pedido) super.clone();
         pedidoClone.estado = this.estado;
         pedidoClone.tipoPedido = this.tipoPedido;
+        pedidoClone.lanche =  this.lanche;
         return pedidoClone;
     }
 }

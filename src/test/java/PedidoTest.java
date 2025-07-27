@@ -245,4 +245,53 @@ public class PedidoTest {
         assertEquals("O pedido está Pronto",pedidoClone.toString());
         assertEquals("O pedido está Solicitado",pedidoClone2.toString());
     }
+
+
+                                                    // DECORATOR
+
+    @Test
+    void deveRetornarPrecoLancheSimples() {
+        Lanche lanche = new LancheSimples(10.0f);
+        assertEquals(10.0f, lanche.getPreco(), 0.01f);
+    }
+
+    @Test
+    void deveRetornarPrecoLancheComBebida() {
+        Lanche lanche = new LancheSimples(10.0f);
+        Lanche lancheComBebida = new Bebida(lanche);
+
+        assertEquals(16.0f, lancheComBebida.getPreco());
+    }
+
+    @Test
+    void deveRetornarDescricaoLancheComBebida() {
+        Lanche lanche = new LancheSimples(10.0f);
+        Lanche lancheComBebida = new Bebida(lanche);
+
+        assertEquals("Lanche + Bebida", lancheComBebida.getDescricao());
+    }
+
+    @Test
+    void deveRetornarPrecoLancheComSobremesa() {
+        Lanche lanche = new LancheSimples(10.0f);
+        Lanche lancheComSobremesa = new Sobremesa(lanche);
+
+        assertEquals(20.0f, lancheComSobremesa.getPreco());
+    }
+
+    @Test
+    void deveRetornarDescricaoLancheComSobremesa() {
+        Lanche lanche = new LancheSimples(10.0f);
+        Lanche lancheComSobremesa = new Sobremesa(lanche);
+
+        assertEquals("Lanche + Sobremesa", lancheComSobremesa.getDescricao());
+    }
+
+    @Test
+    void deveAceitarPedidoComLancheDecoradoComSobremesaEBebida() {
+        Lanche lancheDecorado = new Sobremesa(new Bebida(new LancheSimples(12.0f)));
+        pedido.setLanche(lancheDecorado);
+
+        assertEquals(28.0f, pedido.getLanche().getPreco());
+    }
 }
