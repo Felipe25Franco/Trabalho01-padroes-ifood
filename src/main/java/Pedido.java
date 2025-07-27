@@ -7,6 +7,7 @@ public class Pedido extends Observable implements Cloneable{
     private PedidoEstado estado;
     private TipoPedido tipoPedido;
     private Lanche lanche;
+    private Frete frete;
 
     public Pedido(TipoPedido tipoPedido) {
         this.estado = PedidoEstadoSolicitado.getInstance();
@@ -86,6 +87,14 @@ public class Pedido extends Observable implements Cloneable{
 
     public void setLanche(Lanche lanche) {
         this.lanche = lanche;
+    }
+
+    public Frete getFrete() {
+        return frete;
+    }
+
+    public void setFrete(Frete frete) {
+        this.frete = frete;
     }
 
     @Override
