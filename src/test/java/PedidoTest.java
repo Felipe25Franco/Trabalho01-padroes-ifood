@@ -294,4 +294,45 @@ public class PedidoTest {
 
         assertEquals(28.0f, pedido.getLanche().getPreco());
     }
+
+                                                     // COMPOSITE
+
+    @Test
+    void deveRetornarPrecoTotalDoLancheComposto() {
+        Lanche lancheSimples = new LancheSimples(12.0f);
+        Lanche bebida = new Bebida(new LancheSimples(0)); // +6
+        Lanche sobremesa = new Sobremesa(new LancheSimples(0)); // +10
+
+        LancheComposto combo = new LancheComposto();
+        combo.adicionar(lancheSimples);
+        combo.adicionar(bebida);
+        combo.adicionar(sobremesa);
+
+        float precoEsperado = 12.0f + 6.0f + 10.0f;
+        assertEquals(precoEsperado, combo.getPreco(), 0.01);
+    }
+
+    @Test
+    void deveRetornarDescricaoDoLancheComposto() {
+        Lanche lancheSimples = new LancheSimples(12.0f);
+        Lanche bebida = new Bebida(new LancheSimples(0));
+        Lanche sobremesa = new Sobremesa(new LancheSimples(0));
+
+        LancheComposto combo = new LancheComposto();
+        combo.adicionar(lancheSimples);
+        combo.adicionar(bebida);
+        combo.adicionar(sobremesa);
+
+        String descricaoEsperada = "Combo: Lanche, Lanche + Bebida, Lanche + Sobremesa";
+        
+        assertEquals(descricaoEsperada, combo.getDescricao());
+    }
+
+
+    @Test
+    void deveRetornarZeroParaComboVazio() {
+        LancheComposto combo = new LancheComposto();
+        assertEquals(0.0f, combo.getPreco(), 0.01);
+        assertEquals("Combo: ", combo.getDescricao());
+    }
 }
