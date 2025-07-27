@@ -1,13 +1,17 @@
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 
-public class Pedido extends Observable implements Cloneable{
+public class Pedido extends Observable implements Cloneable {
 
     private PedidoEstado estado;
     private TipoPedido tipoPedido;
     private Lanche lanche;
     private Frete frete;
+    private List<PedidoEstado> memento = new ArrayList<PedidoEstado>();
+
 
     public Pedido(TipoPedido tipoPedido) {
         this.estado = PedidoEstadoSolicitado.getInstance();
@@ -67,6 +71,18 @@ public class Pedido extends Observable implements Cloneable{
 
     public void setEstado(PedidoEstado estado) {
         this.estado = estado;
+        this.memento.add(this.estado);
+    }
+
+    public void restauraEstado(int indice) {
+        if (indice < 0 || indice > this.memento.size() - 1) {
+            throw new IllegalArgumentException("Índice inválido");
+        }
+        this.estado = this.memento.get(indice);
+    }
+
+    public List<PedidoEstado> getEstados() {
+        return this.memento;
     }
 
     public PedidoEstado getEstado() {
@@ -96,6 +112,8 @@ public class Pedido extends Observable implements Cloneable{
     public void setFrete(Frete frete) {
         this.frete = frete;
     }
+
+
 
     @Override
     public String toString() {

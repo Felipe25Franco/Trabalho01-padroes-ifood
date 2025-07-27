@@ -324,7 +324,7 @@ public class PedidoTest {
         combo.adicionar(sobremesa);
 
         String descricaoEsperada = "Combo: Lanche, Lanche + Bebida, Lanche + Sobremesa";
-        
+
         assertEquals(descricaoEsperada, combo.getDescricao());
     }
 
@@ -334,5 +334,52 @@ public class PedidoTest {
         LancheComposto combo = new LancheComposto();
         assertEquals(0.0f, combo.getPreco(), 0.01);
         assertEquals("Combo: ", combo.getDescricao());
+    }
+
+
+                                                        // MEMENTO
+
+    @Test
+    void deveArmazenarEstados() {
+        pedido = new Pedido(TipoPedidoSolicitado.getTipoPedidoSolicitado());
+        pedido.setEstado(PedidoEstadoSolicitado.getInstance());
+        pedido.setEstado(PedidoEstadoEmPreparo.getInstance());
+
+        assertEquals(2, pedido.getEstados().size());
+    }
+    @Test
+    void deveRetornarEstadoInicial() {
+        pedido = new Pedido(TipoPedidoSolicitado.getTipoPedidoSolicitado());
+
+        pedido.setEstado(PedidoEstadoSolicitado.getInstance());
+        pedido.setEstado(PedidoEstadoEmPreparo.getInstance());
+        pedido.restauraEstado(0);
+
+        assertEquals(PedidoEstadoSolicitado.getInstance(), pedido.getEstado());
+    }
+
+    @Test
+    void deveRetornarEstadoAnterior() {
+        pedido = new Pedido(TipoPedidoSolicitado.getTipoPedidoSolicitado());
+
+        pedido.setEstado(PedidoEstadoSolicitado.getInstance());
+        pedido.setEstado(PedidoEstadoEmPreparo.getInstance());
+        pedido.setEstado(PedidoEstadoPronto.getInstance());
+        pedido.setEstado(PedidoEstadoEmEntrega.getInstance());
+
+        pedido.restauraEstado(2);
+
+        assertEquals(PedidoEstadoPronto.getInstance(), pedido.getEstado());
+    }
+
+    @Test
+    void deveRetornarExcecaoIndiceInvalido() {
+        try {
+            pedido = new Pedido(TipoPedidoSolicitado.getTipoPedidoSolicitado());
+            pedido.restauraEstado(0);
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals("Índice inválido", e.getMessage());
+        }
     }
 }
