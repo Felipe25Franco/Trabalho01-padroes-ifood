@@ -439,4 +439,27 @@ public class PedidoTest {
         // Assert
         assertEquals("Solicitado", pedido.getEstado().getEstado());
     }
+
+                                                        // FACTORY METHOD
+
+    @Test
+    void deveAplicarDescontoFixo() {
+        pedido.setValorTotal(100.0);
+        pedido.aplicarDesconto("Fixo", 15.0);
+        assertEquals(85.0, pedido.calcularTotalComDesconto());
+    }
+
+    @Test
+    void deveAplicarDescontoPercentual() {
+        pedido.setValorTotal(100.0);
+        pedido.aplicarDesconto("Percentual", 10.0);
+        assertEquals(90.0, pedido.calcularTotalComDesconto());
+    }
+
+    @Test
+    void naoDeveAplicarDescontoInvalido() {
+        assertThrows(IllegalArgumentException.class, () ->
+                pedido.aplicarDesconto("total", 0)
+        );
+    }
 }

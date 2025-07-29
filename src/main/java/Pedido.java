@@ -10,12 +10,35 @@ public class Pedido extends Observable implements Cloneable {
     private TipoPedido tipoPedido;
     private Lanche lanche;
     private Frete frete;
+
+    private double valorTotal;
+    private IDesconto desconto;
     private List<PedidoEstado> memento = new ArrayList<PedidoEstado>();
 
 
     public Pedido(TipoPedido tipoPedido) {
         this.estado = PedidoEstadoSolicitado.getInstance();
         this.tipoPedido = tipoPedido;
+    }
+
+    public void aplicarDesconto(String tipoDesconto, double valorParametro) {
+        this.desconto = DescontoFactory.obterDesconto(tipoDesconto, valorParametro);
+    }
+
+    public double calcularTotalComDesconto() {
+        if (desconto != null) {
+            return desconto.aplicar(valorTotal);
+        }
+        return valorTotal;
+    }
+
+    // Getters e Setters
+    public double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
     }
 
     public void acompanharPedido(Cliente cliente) {
