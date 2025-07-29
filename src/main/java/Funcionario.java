@@ -24,4 +24,15 @@ public abstract class Funcionario {
             }
         }
     }
+
+    public void processarPedido(Pedido pedido, Comando comando) {
+        if (listaPedidos.contains(pedido.getTipoPedido())) {
+            System.out.println("[CHAIN] " + getDescricaoCargo() + " está processando o pedido.");
+            comando.executar();
+        } else if (funcionarioSuperior != null) {
+            funcionarioSuperior.processarPedido(pedido, comando);
+        } else {
+            System.out.println("[CHAIN] Nenhum funcionário pode processar este pedido.");
+        }
+    }
 }

@@ -382,4 +382,61 @@ public class PedidoTest {
             assertEquals("Índice inválido", e.getMessage());
         }
     }
+
+
+                                                    // COMMAND
+
+    @Test
+    void deveMudarParaEmPreparo_QuandoEstadoEhSolicitado() {
+        // Arrange
+        pedido = new Pedido(TipoPedidoSolicitado.getTipoPedidoSolicitado());
+        PrepararPedidoComando comando = new PrepararPedidoComando(pedido);
+
+        // Act
+        comando.executar();
+
+        // Assert
+        assertEquals("Em Preparo", pedido.getEstado().getEstado());
+    }
+
+    @Test
+    void deveManterEstado_QuandoNaoPodePreparar() {
+        // Arrange
+        pedido = new Pedido(TipoPedidoSolicitado.getTipoPedidoSolicitado());
+        pedido.setEstado(PedidoEstadoEntregue.getInstance()); // Estado inválido
+        PrepararPedidoComando comando = new PrepararPedidoComando(pedido);
+
+        // Act
+        comando.executar();
+
+        // Assert
+        assertEquals("Entregue", pedido.getEstado().getEstado());
+    }
+    @Test
+    void deveMudarParaEntregando_QuandoEstadoEhPronto() {
+        // Arrange
+        pedido = new Pedido(TipoPedidoSolicitado.getTipoPedidoSolicitado());
+        pedido.setEstado(PedidoEstadoPronto.getInstance()); // Estado válido
+        EntregarPedidoComando comando = new EntregarPedidoComando(pedido);
+
+        // Act
+        comando.executar();
+
+        // Assert
+        assertEquals("Em Entrega", pedido.getEstado().getEstado());
+    }
+
+    @Test
+    void deveManterEstado_QuandoNaoPodeEntregar() {
+        // Arrange
+        pedido = new Pedido(TipoPedidoSolicitado.getTipoPedidoSolicitado());
+        pedido.setEstado(PedidoEstadoSolicitado.getInstance()); // Estado inválido
+        EntregarPedidoComando comando = new EntregarPedidoComando(pedido);
+
+        // Act
+        comando.executar();
+
+        // Assert
+        assertEquals("Solicitado", pedido.getEstado().getEstado());
+    }
 }
