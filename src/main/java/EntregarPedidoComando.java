@@ -6,13 +6,13 @@ public class EntregarPedidoComando implements Comando{
     }
 
     @Override
-    public void executar() {
+    public String executar() {
         boolean sucesso = pedido.entregando();
 
         if (sucesso) {
-            System.out.println("[COMMAND] Pedido preparado. Estado atual: " + pedido.getEstado());
+            return "[COMMAND] Pedido preparado. Estado atual: " + pedido.getEstado();
         } else {
-            System.out.println("[COMMAND] Falha ao preparar. Estado atual: " + pedido.getEstado());
+            return "[COMMAND] Falha ao preparar. Estado atual: " + pedido.getEstado();
         }
     }
 

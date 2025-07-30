@@ -388,55 +388,46 @@ public class PedidoTest {
 
     @Test
     void deveMudarParaEmPreparo_QuandoEstadoEhSolicitado() {
-        // Arrange
+
         pedido = new Pedido(TipoPedidoSolicitado.getTipoPedidoSolicitado());
         PrepararPedidoComando comando = new PrepararPedidoComando(pedido);
 
-        // Act
         comando.executar();
-
-        // Assert
         assertEquals("Em Preparo", pedido.getEstado().getEstado());
     }
 
     @Test
     void deveManterEstado_QuandoNaoPodePreparar() {
-        // Arrange
+
         pedido = new Pedido(TipoPedidoSolicitado.getTipoPedidoSolicitado());
         pedido.setEstado(PedidoEstadoEntregue.getInstance()); // Estado inválido
         PrepararPedidoComando comando = new PrepararPedidoComando(pedido);
 
-        // Act
         comando.executar();
 
-        // Assert
         assertEquals("Entregue", pedido.getEstado().getEstado());
     }
     @Test
     void deveMudarParaEntregando_QuandoEstadoEhPronto() {
-        // Arrange
+
         pedido = new Pedido(TipoPedidoSolicitado.getTipoPedidoSolicitado());
         pedido.setEstado(PedidoEstadoPronto.getInstance()); // Estado válido
         EntregarPedidoComando comando = new EntregarPedidoComando(pedido);
 
-        // Act
         comando.executar();
 
-        // Assert
         assertEquals("Em Entrega", pedido.getEstado().getEstado());
     }
 
     @Test
     void deveManterEstado_QuandoNaoPodeEntregar() {
-        // Arrange
         pedido = new Pedido(TipoPedidoSolicitado.getTipoPedidoSolicitado());
         pedido.setEstado(PedidoEstadoSolicitado.getInstance()); // Estado inválido
         EntregarPedidoComando comando = new EntregarPedidoComando(pedido);
 
-        // Act
+
         comando.executar();
 
-        // Assert
         assertEquals("Solicitado", pedido.getEstado().getEstado());
     }
 
@@ -461,5 +452,33 @@ public class PedidoTest {
         assertThrows(IllegalArgumentException.class, () ->
                 pedido.aplicarDesconto("total", 0)
         );
+    }
+
+
+
+                                                // ADAPTER
+
+    @Test
+    void deveProcessarPagamentoComPayPalViaAdapter() {
+        PagamentoAdapter adapter = new PagamentoAdapter(new PayPalAdapter());
+        String resultado = adapter.processarPagamento(120.0);
+
+        assertEquals("Pagamento de R$120.0 processado pelo PayPal.", resultado);
+    }
+
+    @Test
+    void deveProcessarPagamentoComPagSeguroViaAdapter() {
+        PagamentoAdapter adapter = new PagamentoAdapter(new PagSeguroAdapter());
+        String resultado = adapter.processarPagamento(85.5);
+
+        assertEquals("Pagamento de R$85.5 processado pelo PagSeguro.", resultado);
+    }
+
+    @Test
+    void deveRetornarMetodoNaoSuportado() {
+        PagamentoAdapter adapter = new PagamentoAdapter(new Object());
+        String resultado = adapter.processarPagamento(50.0);
+
+        assertEquals("Método de pagamento não suportado.", resultado);
     }
 }
