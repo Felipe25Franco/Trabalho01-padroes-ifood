@@ -14,7 +14,7 @@ public class Pedido extends Observable implements Cloneable {
     private double valorTotal;
     private IDesconto desconto;
     private List<PedidoEstado> memento = new ArrayList<PedidoEstado>();
-    private Pagamento pagamento;
+    private IAvaliacao iAvaliacao;
 
 
 
@@ -34,13 +34,7 @@ public class Pedido extends Observable implements Cloneable {
         return valorTotal;
     }
 
-    public void processarPagamento() {
-        if (pagamento != null) {
-            pagamento.processarPagamento(valorTotal);
-        } else {
-            System.out.println("Nenhum método de pagamento definido.");
-        }
-    }
+
     // Getters e Setters
     public double getValorTotal() {
         return valorTotal;
@@ -144,8 +138,8 @@ public class Pedido extends Observable implements Cloneable {
     public void setFrete(Frete frete) {
         this.frete = frete;
     }
-    public void setPagamento(Pagamento pagamento) {
-        this.pagamento = pagamento;
+    public void setIAvaliacao(IAvaliacao iAvaliacao) {
+        this.iAvaliacao = iAvaliacao;
     }
 
 

@@ -459,26 +459,46 @@ public class PedidoTest {
                                                 // ADAPTER
 
     @Test
-    void deveProcessarPagamentoComPayPalViaAdapter() {
-        PagamentoAdapter adapter = new PagamentoAdapter(new PayPalAdapter());
-        String resultado = adapter.processarPagamento(120.0);
+    void deveRetornarEstrelasAPartirDaNota() {
+        IAvaliacao avaliacaoEstrela = new AvaliacaoEstrela();
+        AvaliacaoAdapter adapter = new AvaliacaoAdapter(avaliacaoEstrela);
+        adapter.setNota(9.2f);
 
-        assertEquals("Pagamento de R$120.0 processado pelo PayPal.", resultado);
+        int estrelas = adapter.recuperarAvaliacao();
+
+        assertEquals(5, estrelas);
     }
 
     @Test
-    void deveProcessarPagamentoComPagSeguroViaAdapter() {
-        PagamentoAdapter adapter = new PagamentoAdapter(new PagSeguroAdapter());
-        String resultado = adapter.processarPagamento(85.5);
+    void deveRetornarNotaAPartirDasEstrelas() {
+        IAvaliacao avaliacaoEstrela = new AvaliacaoEstrela();
+        AvaliacaoAdapter adapter = new AvaliacaoAdapter(avaliacaoEstrela);
 
-        assertEquals("Pagamento de R$85.5 processado pelo PagSeguro.", resultado);
+        avaliacaoEstrela.setAvaliacao(3); // 3 estrelas
+        adapter.salvarAvaliacao();
+
+        assertEquals(7.5f, adapter.getNota());
     }
 
     @Test
-    void deveRetornarMetodoNaoSuportado() {
-        PagamentoAdapter adapter = new PagamentoAdapter(new Object());
-        String resultado = adapter.processarPagamento(50.0);
+    void deveConverterNotaBaixaEmPoucasEstrelas() {
+        IAvaliacao avaliacaoEstrela = new AvaliacaoEstrela();
+        AvaliacaoAdapter adapter = new AvaliacaoAdapter(avaliacaoEstrela);
+        adapter.setNota(2.5f);
 
-        assertEquals("Método de pagamento não suportado.", resultado);
+        int estrelas = adapter.recuperarAvaliacao();
+
+        assertEquals(0, estrelas);
+    }
+
+    @Test
+    void deveConverterEstrelasZeroEmNotaBaixa() {
+        IAvaliacao avaliacaoEstrela = new AvaliacaoEstrela();
+        AvaliacaoAdapter adapter = new AvaliacaoAdapter(avaliacaoEstrela);
+
+        avaliacaoEstrela.setAvaliacao(0);
+        adapter.salvarAvaliacao();
+
+        assertEquals(2.0f, adapter.getNota());
     }
 }
